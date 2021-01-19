@@ -7,20 +7,25 @@ import java.awt.event.ActionListener;
 public class UserInterFace extends JFrame implements ActionListener {
 
     private static final long serialVersionUID = 1L;
-    private JPanel panel;
-
     private static final String colorDark = "#5b6151";
     private static final String colorMedDark = "#889379";
     private static final String colorMed = "#e5dbd7";
     private static final String colorMedLt = "#9799a9";
     private static final String colorLt = "#8790b3";
-    JButton but;
+    JButton inButton;
+    JComboBox outSelect; 
+    String outputTypes[] = {"CSV Comma", "CSV Semicolon", "MT940", "JSon"};
+    
+    
+
 
     public UserInterFace() {
 
-        but = new JButton();
+        inButton = new JButton();
+        inButton.addActionListener(this);
+        outSelect = new JComboBox<String>(outputTypes);
 
-        but.setText("open file");
+        inButton.setText("open file");
 
         this.setTitle("ConvertCSV");
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -32,7 +37,8 @@ public class UserInterFace extends JFrame implements ActionListener {
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.decode(colorLt));
-        this.add(but);
+        this.add(inButton);
+        this.add(outSelect);
 
         this.setVisible(true);
     }
@@ -49,7 +55,11 @@ public class UserInterFace extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource==this.but)
+        
+        if(e.getSource()==inButton){
+            choiceDialog();
+
+        }
 
     }
 
