@@ -1,28 +1,58 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class UserInterFace extends JFrame {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class UserInterFace extends JFrame implements ActionListener {
 
     private static final long serialVersionUID = 1L;
-    private JPanel panel; 
+    private JPanel panel;
+
+    private static final String colorDark = "#5b6151";
+    private static final String colorMedDark = "#889379";
+    private static final String colorMed = "#e5dbd7";
+    private static final String colorMedLt = "#9799a9";
+    private static final String colorLt = "#8790b3";
+    JButton but;
 
     public UserInterFace() {
 
-        // panel = new JPanel();
+        but = new JButton();
+
+        but.setText("open file");
+
         this.setTitle("ConvertCSV");
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        Integer scale = dim.height/10;
-        
+        Integer scale = dim.height / 10;
 
-        this.setSize(scale*2,scale*3);
+        this.setSize(scale * 2, scale * 3);
         this.setResizable(false);
-        
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        // JPanel.setBackground();
-        
+        this.getContentPane().setBackground(Color.decode(colorLt));
+        this.add(but);
+
         this.setVisible(true);
     }
+
+    private void choiceDialog() {
+
+        JFileChooser chooser = new JFileChooser();
+        int returnVal = chooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            System.out.println("You chose to open this file: " + chooser.getSelectedFile().getName());
+        }
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource==this.but)
+
+    }
+
 
   
     
