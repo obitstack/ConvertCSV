@@ -7,27 +7,26 @@ import java.util.Scanner;
 
 public class FileConverter {
 
-    private String fileName = "n26-csv-transactions(1).csv";  
+    private String fileName;  
     Scanner scanner; 
     BufferedWriter writer;
 
-    FileConverter(String inputPath, String outputPath){
+    FileConverter(String inputPath,String fileName, String outputPath){
         scanner = null;
         writer = null;
-        alterFile(inputPath, outputPath);
+        alterFile(inputPath, fileName, outputPath);
 
     }
 
-    FileConverter(String[] inputPath, String outputPath){
+    FileConverter(String[] inputPath,String[] fileName, String outputPath){
         // alter-merge constructor
         scanner = null;
         writer = null;
-        alterFile(inputPath, outputPath);
+        alterFile(inputPath, fileName, outputPath);
 
     }
 
-    
-    private void alterFile(String inputPath, String outputPath){
+    private void alterFile(String inputPath, String fileName, String outputPath){
         try {
             scanner = new Scanner(new BufferedReader(new FileReader("src/input/"+fileName)));
             scanner.useDelimiter(",");
@@ -58,7 +57,7 @@ public class FileConverter {
         
     }
 
-    private void alterFile(String[] inputPath, String outputPath){
+    private void alterFile(String[] inputPath, String[] fileName, String outputPath){
 
         // alter+merge
         try {
