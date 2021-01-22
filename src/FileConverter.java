@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class FileConverter {
 
-    private String fileName = "n26-csv-transactions.csv";  
+    private String fileName = "n26-csv-transactions(1).csv";  
     Scanner scanner; 
     BufferedWriter writer;
 
