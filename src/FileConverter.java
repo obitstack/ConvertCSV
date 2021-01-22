@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class FileConverter {
 
-    private String fileName;  
     Scanner scanner; 
     BufferedWriter writer;
 
@@ -28,11 +27,11 @@ public class FileConverter {
 
     private void alterFile(String inputPath, String fileName, String outputPath){
         try {
-            scanner = new Scanner(new BufferedReader(new FileReader("src/input/"+fileName)));
+            scanner = new Scanner(new BufferedReader(new FileReader(inputPath+fileName)));
             scanner.useDelimiter(",");
 
             String words = "";
-            writer = new BufferedWriter(new FileWriter("src/output/"+"out_"+fileName));
+            writer = new BufferedWriter(new FileWriter(outputPath+"out_"+fileName));
 
             while(scanner.hasNextLine()){
                 String word = scanner.next();
