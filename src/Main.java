@@ -6,7 +6,7 @@ public class Main {
 
         String fileName = "n26-csv-transactions(1).csv";
         String filePath = "src/input/";
-        String outputPath = "src/output";
+        String outputPath = "src/output/";
     
 
 
